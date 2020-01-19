@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/myTechNotes.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myTechNotes.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myTechNotes.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/myTechNotes.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myTechNotes.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/myTechNotes.github.io/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://derekl168.github.io/myTechNotes.github.io').hostname,
+    root: '/myTechNotes.github.io/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Just to start my tech-note sharing using Hexo. The first blog… yup, it is just the quick installation notes for my lab setup. My setup is based on the following:  Host: MacBook Pro &#x2F; macOS Catalina Va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Taste of Hexo on Vagrant-based Fedora VM">
+<meta property="og:url" content="https://derekl168.github.io/myTechNotes.github.io/2020/01/19/A-Taste-of-Hexo-on-Vagrant-based-Fedora-VM/index.html">
+<meta property="og:site_name" content="Open The Possibilities 開源未來的可能性">
+<meta property="og:description" content="Just to start my tech-note sharing using Hexo. The first blog… yup, it is just the quick installation notes for my lab setup. My setup is based on the following:  Host: MacBook Pro &#x2F; macOS Catalina Va">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-19T02:05:33.000Z">
+<meta property="article:modified_time" content="2020-01-19T10:06:13.522Z">
+<meta property="article:author" content="Derek Li">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Vagrant">
+<meta property="article:tag" content="Fedora31">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://derekl168.github.io/myTechNotes.github.io/2020/01/19/A-Taste-of-Hexo-on-Vagrant-based-Fedora-VM/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>A Taste of Hexo on Vagrant-based Fedora VM | Open The Possibilities 開源未來的可能性</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/myTechNotes.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Open The Possibilities 開源未來的可能性</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Knowledge is a power and it belongs to all human-being! 知識是全人類的，分享創造你我的未來!</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/myTechNotes.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/myTechNotes.github.io/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://derekl168.github.io/myTechNotes.github.io/2020/01/19/A-Taste-of-Hexo-on-Vagrant-based-Fedora-VM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myTechNotes.github.io/images/avatar.gif">
+      <meta itemprop="name" content="Derek Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Open The Possibilities 開源未來的可能性">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          A Taste of Hexo on Vagrant-based Fedora VM
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-19 10:05:33 / Modified: 18:06:13" itemprop="dateCreated datePublished" datetime="2020-01-19T10:05:33+08:00">2020-01-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/myTechNotes.github.io/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Just to start my tech-note sharing using Hexo. The first blog… yup, it is just the quick installation notes for my lab setup.</p>
+<p>My setup is based on the following:</p>
+<ul>
+<li>Host:<ul>
+<li>MacBook Pro / macOS Catalina</li>
+<li>Vagrant 2.2.6 + VirtualBox 6.1</li>
+</ul>
+</li>
+<li>Guest:<ul>
+<li>Fedora 31</li>
+</ul>
+</li>
+</ul>
+<h1 id="VM-Provision"><a href="#VM-Provision" class="headerlink" title="VM Provision"></a>VM Provision</h1><p>Very simple, just to prepare your vagrantfile &amp; provisioning script and then run <code>vagrant up</code></p>
+<p>My example is listed below:</p>
+<ul>
+<li><code>cat Vagrantfile</code></li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- mode: ruby -*-</span></span><br><span class="line"><span class="comment"># vi: set ft=ruby :</span></span><br><span class="line"></span><br><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> <span class="params">|config|</span></span><br><span class="line">  config.vm.box = <span class="string">"fedora/31-cloud-base"</span></span><br><span class="line">  config.vm.hostname = <span class="string">"hexo"</span></span><br><span class="line">  <span class="comment"># Put the port forwarding rule here so you can check the result in host browser immediately</span></span><br><span class="line">  config.vm.network <span class="string">"forwarded_port"</span>, <span class="symbol">guest:</span> <span class="number">4000</span>, <span class="symbol">host:</span> <span class="number">4000</span></span><br><span class="line">  config.vm.provider <span class="string">"virtualbox"</span> <span class="keyword">do</span> <span class="params">|vb|</span></span><br><span class="line">    vb.name = <span class="string">"hexo"</span></span><br><span class="line">    vb.memory = <span class="string">"4096"</span></span><br><span class="line">    vb.cpus = <span class="number">2</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="comment"># For quick provisioning, I temporary disable VirtualBox guest plugin</span></span><br><span class="line">  config.vbguest.auto_update = <span class="literal">false</span></span><br><span class="line">  config.vm.provision <span class="symbol">:shell</span>, <span class="symbol">:privileged</span> =&gt; <span class="literal">true</span>, <span class="symbol">:path</span> =&gt; <span class="string">"myConfig.sh"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>cat myConfig.sh</code>: Using provisioning script to reduce the effort for VM setup.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Update sources</span></span><br><span class="line">dnf update -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># my SOP</span></span><br><span class="line">dnf install wget tmux vim <span class="built_in">bind</span>-utils -y</span><br><span class="line"></span><br><span class="line"><span class="comment">########################################</span></span><br><span class="line"><span class="comment"># optional software</span></span><br><span class="line"><span class="comment">########################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Node.js</span></span><br><span class="line">dnf install git-core -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="Hexo-install-and-Setup"><a href="#Hexo-install-and-Setup" class="headerlink" title="Hexo install and Setup"></a>Hexo install and Setup</h1><h2 id="Node-js-amp-Hexo-Installation"><a href="#Node-js-amp-Hexo-Installation" class="headerlink" title="Node.js &amp; Hexo Installation"></a>Node.js &amp; Hexo Installation</h2><p>Hexo is based on node.js so have to install node.js.</p>
+<p>You can consider to use stable version, or just like me to try the latest software.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@hexo ~]<span class="comment"># curl -sL https://rpm.nodesource.com/setup_13.x | bash -</span></span><br><span class="line">[root@hexo ~]<span class="comment"># dnf install gcc-c++ make</span></span><br><span class="line">[root@hexo ~]<span class="comment"># curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo</span></span><br><span class="line">[root@hexo ~]<span class="comment"># sudo yum install yarn -y</span></span><br><span class="line">[root@hexo ~]<span class="comment"># sudo yum install -y nodejs</span></span><br><span class="line">[root@hexo ~]<span class="comment"># npm install hexo</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Initiate-your-blog"><a href="#Initiate-your-blog" class="headerlink" title="Initiate your blog"></a>Initiate your blog</h2><p>Please note the following setup <strong>CAN NOT</strong> be done by root user. You need to use a non-privilege user to setup your blog.</p>
+<p>In my lab, I use the default vagrant user.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo blog]$ npm install hexo</span><br><span class="line">[vagrant@hexo blog]$ <span class="built_in">echo</span> <span class="string">'PATH="$PATH:./node_modules/.bin"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">[vagrant@hexo blog]$ . .bash_profile</span><br><span class="line">[vagrant@hexo blog]$ hexo init blog</span><br><span class="line">[vagrant@hexo blog]$ <span class="built_in">cd</span> blog/</span><br><span class="line">[vagrant@hexo blog]$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>That is all.  Just summarize my setup below:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo ~]$ hexo --version</span><br><span class="line">hexo-cli: 3.1.0</span><br><span class="line">os: Linux 5.4.10-200.fc31.x86_64 linux x64</span><br><span class="line">node: 13.6.0</span><br><span class="line">v8: 7.9.317.25-node.26</span><br><span class="line">uv: 1.34.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.7</span><br><span class="line">ares: 1.15.0</span><br><span class="line">modules: 79</span><br><span class="line">nghttp2: 1.40.0</span><br><span class="line">napi: 5</span><br><span class="line">llhttp: 2.0.1</span><br><span class="line">openssl: 1.1.1d</span><br><span class="line">cldr: 36.0</span><br><span class="line">icu: 65.1</span><br><span class="line">tz: 2019c</span><br><span class="line">unicode: 12.1</span><br></pre></td></tr></table></figure>
+<h1 id="Apply-Theme"><a href="#Apply-Theme" class="headerlink" title="Apply Theme"></a>Apply Theme</h1><p>There are many choices for Hexo Themes. I choose a simple &amp; lite themes with multilingual support.</p>
+<p><a href="https://github.com/theme-next" target="_blank" rel="noopener">https://github.com/theme-next</a></p>
+<h2 id="NexT-Theme"><a href="#NexT-Theme" class="headerlink" title="NexT Theme"></a>NexT Theme</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo blog]$ pwd</span><br><span class="line">&#x2F;home&#x2F;vagrant&#x2F;blog</span><br><span class="line">[vagrant@hexo blog]$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>Edit the basic info in blog/_config.yml as starting point. Only highlight the changes:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">&lt;put</span> <span class="string">your</span> <span class="string">preferred</span> <span class="string">title&gt;</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">''</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">''</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Derek</span> <span class="string">Li</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">'Asia/Singapore'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+<p>If you like to include the categories and tags:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ hexo new page categories</span><br><span class="line">INFO  Created: ~&#x2F;myTechNotes&#x2F;source&#x2F;categories&#x2F;index.md</span><br><span class="line"></span><br><span class="line">[vagrant@hexo categories]$ pwd</span><br><span class="line">&#x2F;home&#x2F;vagrant&#x2F;myTechNotes&#x2F;source&#x2F;categories</span><br><span class="line"></span><br><span class="line">[vagrant@hexo categories]$ vim index.md</span><br><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-01-19 10:00:37</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">[vagrant@hexo myTechNotes]$ hexo new page tags</span><br><span class="line">INFO  Created: ~&#x2F;myTechNotes&#x2F;source&#x2F;tags&#x2F;index.md</span><br><span class="line"></span><br><span class="line">[vagrant@hexo tags]$ pwd</span><br><span class="line">&#x2F;home&#x2F;vagrant&#x2F;myTechNotes&#x2F;source&#x2F;tags</span><br><span class="line"></span><br><span class="line">[vagrant@hexo tags]$ vi index.md</span><br><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-01-19 10:01:00</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>That is all, hope this can help you a bit when you start your blog.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myTechNotes.github.io/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/myTechNotes.github.io/tags/Vagrant/" rel="tag"># Vagrant</a>
+              <a href="/myTechNotes.github.io/tags/Fedora31/" rel="tag"># Fedora31</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/myTechNotes.github.io/2020/01/19/Publish-Github-Pages-Using-Hexo/" rel="next" title="Publish Github Pages Using Hexo">
+      Publish Github Pages Using Hexo <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VM-Provision"><span class="nav-number">1.</span> <span class="nav-text">VM Provision</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-install-and-Setup"><span class="nav-number">2.</span> <span class="nav-text">Hexo install and Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-amp-Hexo-Installation"><span class="nav-number">2.1.</span> <span class="nav-text">Node.js &amp; Hexo Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initiate-your-blog"><span class="nav-number">2.2.</span> <span class="nav-text">Initiate your blog</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Apply-Theme"><span class="nav-number">3.</span> <span class="nav-text">Apply Theme</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT-Theme"><span class="nav-number">3.1.</span> <span class="nav-text">NexT Theme</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Derek Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/myTechNotes.github.io/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/myTechNotes.github.io/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/myTechNotes.github.io/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Derek Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/myTechNotes.github.io/lib/anime.min.js"></script>
+  <script src="/myTechNotes.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/myTechNotes.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/myTechNotes.github.io/js/utils.js"></script>
+
+<script src="/myTechNotes.github.io/js/motion.js"></script>
+
+
+<script src="/myTechNotes.github.io/js/schemes/muse.js"></script>
+
+
+<script src="/myTechNotes.github.io/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
