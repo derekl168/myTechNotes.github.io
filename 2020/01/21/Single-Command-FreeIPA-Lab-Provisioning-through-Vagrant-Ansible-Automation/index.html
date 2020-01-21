@@ -46,27 +46,35 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Open The Possibilities 開源未來的可能性">
-<meta property="og:url" content="https://derekl168.github.io/myTechNotes.github.io/index.html">
+  <meta name="description" content="FreeIPA is a free and open source identity management system, it is also the upstream open-source project for Red Hat Identity Manager (IdM). FreeIPA combines Linux (Fedora), 389 Directory Server, MIT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Single Command FreeIPA Lab Provisioning through Vagrant+Ansible Automation">
+<meta property="og:url" content="https://derekl168.github.io/myTechNotes.github.io/2020/01/21/Single-Command-FreeIPA-Lab-Provisioning-through-Vagrant-Ansible-Automation/index.html">
 <meta property="og:site_name" content="Open The Possibilities 開源未來的可能性">
+<meta property="og:description" content="FreeIPA is a free and open source identity management system, it is also the upstream open-source project for Red Hat Identity Manager (IdM). FreeIPA combines Linux (Fedora), 389 Directory Server, MIT">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-21T14:35:27.000Z">
+<meta property="article:modified_time" content="2020-01-21T14:37:12.193Z">
 <meta property="article:author" content="Derek Li">
+<meta property="article:tag" content="Vagrant">
+<meta property="article:tag" content="Ansible">
+<meta property="article:tag" content="FreeIPA">
+<meta property="article:tag" content="Centos7">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://derekl168.github.io/myTechNotes.github.io/">
+<link rel="canonical" href="https://derekl168.github.io/myTechNotes.github.io/2020/01/21/Single-Command-FreeIPA-Lab-Provisioning-through-Vagrant-Ansible-Automation/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>Open The Possibilities 開源未來的可能性</title>
+  <title>Single Command FreeIPA Lab Provisioning through Vagrant+Ansible Automation | Open The Possibilities 開源未來的可能性</title>
   
 
 
@@ -162,10 +170,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://derekl168.github.io/myTechNotes.github.io/2020/01/21/Single-Command-FreeIPA-Lab-Provisioning-through-Vagrant-Ansible-Automation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -179,8 +187,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/myTechNotes.github.io/2020/01/21/Single-Command-FreeIPA-Lab-Provisioning-through-Vagrant-Ansible-Automation/" class="post-title-link" itemprop="url">Single Command FreeIPA Lab Provisioning through Vagrant+Ansible Automation</a>
+          Single Command FreeIPA Lab Provisioning through Vagrant+Ansible Automation
         </h1>
 
         <div class="post-meta">
@@ -216,7 +223,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>FreeIPA is a free and open source identity management system, it is also the upstream open-source project for Red Hat Identity Manager (IdM). FreeIPA combines Linux (Fedora), 389 Directory Server, MIT Kerberos, NTP, DNS, Dogtag Certificate System), and SSSD, to provide a centrally managed Identity, Policy, and Audit (IPA) system.</p>
+        <p>FreeIPA is a free and open source identity management system, it is also the upstream open-source project for Red Hat Identity Manager (IdM). FreeIPA combines Linux (Fedora), 389 Directory Server, MIT Kerberos, NTP, DNS, Dogtag Certificate System), and SSSD, to provide a centrally managed Identity, Policy, and Audit (IPA) system.</p>
 <p>We use Red Hat Identity Manager (IdM) in one of our projects as a centralised authentication and Single-Sign-On (SSO) system to manage Linux Servers. Recently, in order to troubleshoot a technical issue, I try to build a local lab on my laptop so I can rapidly spawn and teardown the test lab for testing different technical approaches. I decide to use the upstream FreeIPA project to re-produce the issue, as it’s just a personal lab. </p>
 <p>The following is the quick procedure I use to setup my lab on laptop. I use FreeIPA’s ansible roles on top of vagrant ansible provider. Through this way, the whole FreeIPA environment setup, including ipa server, client and the Integration, is literally just “one-command”.</p>
 <h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h1><h2 id="Network-Planning"><a href="#Network-Planning" class="headerlink" title="Network Planning"></a>Network Planning</h2><p>Before start, I draw a quick plan for the testing lab:</p>
@@ -282,249 +289,39 @@
 
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/myTechNotes.github.io/tags/Vagrant/" rel="tag"># Vagrant</a>
+              <a href="/myTechNotes.github.io/tags/Ansible/" rel="tag"># Ansible</a>
+              <a href="/myTechNotes.github.io/tags/FreeIPA/" rel="tag"># FreeIPA</a>
+              <a href="/myTechNotes.github.io/tags/Centos7/" rel="tag"># Centos7</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://derekl168.github.io/myTechNotes.github.io/2020/01/19/Publish-Github-Pages-Using-Hexo/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/myTechNotes.github.io/images/avatar.gif">
-      <meta itemprop="name" content="Derek Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Open The Possibilities 開源未來的可能性">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/myTechNotes.github.io/2020/01/19/Publish-Github-Pages-Using-Hexo/" class="post-title-link" itemprop="url">Publish Github Pages Using Hexo</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-19 18:25:35 / Modified: 18:26:44" itemprop="dateCreated datePublished" datetime="2020-01-19T18:25:35+08:00">2020-01-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myTechNotes.github.io/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>A quick guide for Github Pages Integration.</p>
-<ul>
-<li>Host:<ul>
-<li>MacBook Pro / macOS Catalina</li>
-<li>Vagrant 2.2.6 + VirtualBox 6.1</li>
-</ul>
-</li>
-<li>Guest:<ul>
-<li>Fedora 31</li>
-<li>Hexo</li>
-</ul>
-</li>
-</ul>
-<h1 id="Connect-to-Github"><a href="#Connect-to-Github" class="headerlink" title="Connect to Github"></a>Connect to Github</h1><h2 id="setup-your-git-account"><a href="#setup-your-git-account" class="headerlink" title="setup your git account"></a>setup your git account</h2><ul>
-<li><p>Add your git account</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ git config --global user.name &quot;derekl168&quot;</span><br><span class="line">[vagrant@hexo myTechNotes]$ git config --global user.email &quot;derek@xxx.yyy&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>(optional) include your ssh key if you like</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ ssh-keygen -t rsa -C &quot;derek@xxx.yyy&quot;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>Create your git repository and include your ssh public key</p>
-</li>
-<li><p>Enable your git repository as a git page</p>
-</li>
-<li><p>verify your ssh key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ ssh -T git@github.com</span><br><span class="line">Hi derekl168! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="Configure-your-Hexo"><a href="#Configure-your-Hexo" class="headerlink" title="Configure your Hexo"></a>Configure your Hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ vi _config.yml</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#39;http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39; and root as &#39;&#x2F;child&#x2F;&#39;</span><br><span class="line">url: https:&#x2F;&#x2F;derekl168.github.io&#x2F;myTechNotes.github.io</span><br><span class="line">root: &#x2F;myTechNotes.github.io&#x2F;</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#39;index.html&#39; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#39;.html&#39; from permalinks</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:derekl168&#x2F;myTechNotes.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<h2 id="install-git-plug-in"><a href="#install-git-plug-in" class="headerlink" title="install git plug-in"></a>install git plug-in</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="Generate-and-preview-your-result-in-local-browser"><a href="#Generate-and-preview-your-result-in-local-browser" class="headerlink" title="Generate and preview your result in local browser"></a>Generate and preview your result in local browser</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ hexo generate</span><br><span class="line">[vagrant@hexo myTechNotes]$ hexo server</span><br></pre></td></tr></table></figure>
-
-<h2 id="deploy-to-Github"><a href="#deploy-to-Github" class="headerlink" title="deploy to Github"></a>deploy to Github</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>Wait for few minutes and then you can check the result, such as:<br><a href="https://derekl168.github.io/myTechNotes.github.io/">https://derekl168.github.io/myTechNotes.github.io/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://derekl168.github.io/myTechNotes.github.io/2020/01/19/A-Taste-of-Hexo-on-Vagrant-based-Fedora-VM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/myTechNotes.github.io/images/avatar.gif">
-      <meta itemprop="name" content="Derek Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Open The Possibilities 開源未來的可能性">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/myTechNotes.github.io/2020/01/19/A-Taste-of-Hexo-on-Vagrant-based-Fedora-VM/" class="post-title-link" itemprop="url">A Taste of Hexo on Vagrant-based Fedora VM</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-19 10:05:33 / Modified: 18:06:13" itemprop="dateCreated datePublished" datetime="2020-01-19T10:05:33+08:00">2020-01-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myTechNotes.github.io/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Just to start my tech-note sharing using Hexo. The first blog… yup, it is just the quick installation notes for my lab setup.</p>
-<p>My setup is based on the following:</p>
-<ul>
-<li>Host:<ul>
-<li>MacBook Pro / macOS Catalina</li>
-<li>Vagrant 2.2.6 + VirtualBox 6.1</li>
-</ul>
-</li>
-<li>Guest:<ul>
-<li>Fedora 31</li>
-</ul>
-</li>
-</ul>
-<h1 id="VM-Provision"><a href="#VM-Provision" class="headerlink" title="VM Provision"></a>VM Provision</h1><p>Very simple, just to prepare your vagrantfile &amp; provisioning script and then run <code>vagrant up</code></p>
-<p>My example is listed below:</p>
-<ul>
-<li><code>cat Vagrantfile</code></li>
-</ul>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- mode: ruby -*-</span></span><br><span class="line"><span class="comment"># vi: set ft=ruby :</span></span><br><span class="line"></span><br><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> <span class="params">|config|</span></span><br><span class="line">  config.vm.box = <span class="string">"fedora/31-cloud-base"</span></span><br><span class="line">  config.vm.hostname = <span class="string">"hexo"</span></span><br><span class="line">  <span class="comment"># Put the port forwarding rule here so you can check the result in host browser immediately</span></span><br><span class="line">  config.vm.network <span class="string">"forwarded_port"</span>, <span class="symbol">guest:</span> <span class="number">4000</span>, <span class="symbol">host:</span> <span class="number">4000</span></span><br><span class="line">  config.vm.provider <span class="string">"virtualbox"</span> <span class="keyword">do</span> <span class="params">|vb|</span></span><br><span class="line">    vb.name = <span class="string">"hexo"</span></span><br><span class="line">    vb.memory = <span class="string">"4096"</span></span><br><span class="line">    vb.cpus = <span class="number">2</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="comment"># For quick provisioning, I temporary disable VirtualBox guest plugin</span></span><br><span class="line">  config.vbguest.auto_update = <span class="literal">false</span></span><br><span class="line">  config.vm.provision <span class="symbol">:shell</span>, <span class="symbol">:privileged</span> =&gt; <span class="literal">true</span>, <span class="symbol">:path</span> =&gt; <span class="string">"myConfig.sh"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>cat myConfig.sh</code>: Using provisioning script to reduce the effort for VM setup.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Update sources</span></span><br><span class="line">dnf update -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># my SOP</span></span><br><span class="line">dnf install wget tmux vim <span class="built_in">bind</span>-utils -y</span><br><span class="line"></span><br><span class="line"><span class="comment">########################################</span></span><br><span class="line"><span class="comment"># optional software</span></span><br><span class="line"><span class="comment">########################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Node.js</span></span><br><span class="line">dnf install git-core -y</span><br></pre></td></tr></table></figure>
-
-<h1 id="Hexo-install-and-Setup"><a href="#Hexo-install-and-Setup" class="headerlink" title="Hexo install and Setup"></a>Hexo install and Setup</h1><h2 id="Node-js-amp-Hexo-Installation"><a href="#Node-js-amp-Hexo-Installation" class="headerlink" title="Node.js &amp; Hexo Installation"></a>Node.js &amp; Hexo Installation</h2><p>Hexo is based on node.js so have to install node.js.</p>
-<p>You can consider to use stable version, or just like me to try the latest software.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@hexo ~]<span class="comment"># curl -sL https://rpm.nodesource.com/setup_13.x | bash -</span></span><br><span class="line">[root@hexo ~]<span class="comment"># dnf install gcc-c++ make</span></span><br><span class="line">[root@hexo ~]<span class="comment"># curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo</span></span><br><span class="line">[root@hexo ~]<span class="comment"># sudo yum install yarn -y</span></span><br><span class="line">[root@hexo ~]<span class="comment"># sudo yum install -y nodejs</span></span><br><span class="line">[root@hexo ~]<span class="comment"># npm install hexo</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Initiate-your-blog"><a href="#Initiate-your-blog" class="headerlink" title="Initiate your blog"></a>Initiate your blog</h2><p>Please note the following setup <strong>CAN NOT</strong> be done by root user. You need to use a non-privilege user to setup your blog.</p>
-<p>In my lab, I use the default vagrant user.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo blog]$ npm install hexo</span><br><span class="line">[vagrant@hexo blog]$ <span class="built_in">echo</span> <span class="string">'PATH="$PATH:./node_modules/.bin"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">[vagrant@hexo blog]$ . .bash_profile</span><br><span class="line">[vagrant@hexo blog]$ hexo init blog</span><br><span class="line">[vagrant@hexo blog]$ <span class="built_in">cd</span> blog/</span><br><span class="line">[vagrant@hexo blog]$ npm install</span><br></pre></td></tr></table></figure>
-
-<p>That is all.  Just summarize my setup below:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo ~]$ hexo --version</span><br><span class="line">hexo-cli: 3.1.0</span><br><span class="line">os: Linux 5.4.10-200.fc31.x86_64 linux x64</span><br><span class="line">node: 13.6.0</span><br><span class="line">v8: 7.9.317.25-node.26</span><br><span class="line">uv: 1.34.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.7</span><br><span class="line">ares: 1.15.0</span><br><span class="line">modules: 79</span><br><span class="line">nghttp2: 1.40.0</span><br><span class="line">napi: 5</span><br><span class="line">llhttp: 2.0.1</span><br><span class="line">openssl: 1.1.1d</span><br><span class="line">cldr: 36.0</span><br><span class="line">icu: 65.1</span><br><span class="line">tz: 2019c</span><br><span class="line">unicode: 12.1</span><br></pre></td></tr></table></figure>
-<h1 id="Apply-Theme"><a href="#Apply-Theme" class="headerlink" title="Apply Theme"></a>Apply Theme</h1><p>There are many choices for Hexo Themes. I choose a simple &amp; lite themes with multilingual support.</p>
-<p><a href="https://github.com/theme-next" target="_blank" rel="noopener">https://github.com/theme-next</a></p>
-<h2 id="NexT-Theme"><a href="#NexT-Theme" class="headerlink" title="NexT Theme"></a>NexT Theme</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo blog]$ pwd</span><br><span class="line">&#x2F;home&#x2F;vagrant&#x2F;blog</span><br><span class="line">[vagrant@hexo blog]$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
-
-<p>Edit the basic info in blog/_config.yml as starting point. Only highlight the changes:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">&lt;put</span> <span class="string">your</span> <span class="string">preferred</span> <span class="string">title&gt;</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">''</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">''</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Derek</span> <span class="string">Li</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">'Asia/Singapore'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
-
-<p>If you like to include the categories and tags:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@hexo myTechNotes]$ hexo new page categories</span><br><span class="line">INFO  Created: ~&#x2F;myTechNotes&#x2F;source&#x2F;categories&#x2F;index.md</span><br><span class="line"></span><br><span class="line">[vagrant@hexo categories]$ pwd</span><br><span class="line">&#x2F;home&#x2F;vagrant&#x2F;myTechNotes&#x2F;source&#x2F;categories</span><br><span class="line"></span><br><span class="line">[vagrant@hexo categories]$ vim index.md</span><br><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-01-19 10:00:37</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">[vagrant@hexo myTechNotes]$ hexo new page tags</span><br><span class="line">INFO  Created: ~&#x2F;myTechNotes&#x2F;source&#x2F;tags&#x2F;index.md</span><br><span class="line"></span><br><span class="line">[vagrant@hexo tags]$ pwd</span><br><span class="line">&#x2F;home&#x2F;vagrant&#x2F;myTechNotes&#x2F;source&#x2F;tags</span><br><span class="line"></span><br><span class="line">[vagrant@hexo tags]$ vi index.md</span><br><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-01-19 10:01:00</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>That is all, hope this can help you a bit when you start your blog.</p>
-
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/myTechNotes.github.io/2020/01/19/Publish-Github-Pages-Using-Hexo/" rel="prev" title="Publish Github Pages Using Hexo">
+      <i class="fa fa-chevron-left"></i> Publish Github Pages Using Hexo
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -575,6 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preparation"><span class="nav-number">1.</span> <span class="nav-text">Preparation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Network-Planning"><span class="nav-number">1.1.</span> <span class="nav-text">Network Planning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FreeIPA-ansible-roles"><span class="nav-number">1.2.</span> <span class="nav-text">FreeIPA ansible roles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-Overview"><span class="nav-number">1.3.</span> <span class="nav-text">Setup Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vagrant-Setting"><span class="nav-number">1.4.</span> <span class="nav-text">Vagrant Setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ansible-playbook"><span class="nav-number">1.5.</span> <span class="nav-text">Ansible playbook</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPA-Deployment"><span class="nav-number">2.</span> <span class="nav-text">IPA Deployment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPA-Validation"><span class="nav-number">3.</span> <span class="nav-text">IPA Validation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Appendix"><span class="nav-number">4.</span> <span class="nav-text">Appendix</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Log-for-vagrant-up"><span class="nav-number">4.1.</span> <span class="nav-text">Log for vagrant up</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
